@@ -28,12 +28,12 @@ Dado um arquivo XML de NF-e ou procNFe:
 - Valida o XML contra o **schema XSD oficial**
 - Faz parse da NFe e extrai:
 
-  - Modelo (`mod`)
-  - Série (`serie`)
-  - Número (`nNF`)
-  - CNPJ e razão social do emitente
-  - CNPJ/CPF e nome do destinatário
-  - Valor total da nota (`vNF`)
+  - **Modelo** (`mod`)
+  - **Série** (`serie`)
+  - **Número** (`nNF`)
+  - **CNPJ** e razão social do emitente
+  - **CNPJ/CPF** e nome do destinatário
+  - **Valor** total da nota (`vNF`)
 
 - Retorna um JSON como:
 
