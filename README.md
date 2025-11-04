@@ -10,7 +10,7 @@ Validador de **NF-e em Go**, usando:
 - Suporte tanto para XML com root `<NFe>` quanto `<nfeProc>` (arquivos `*-procNFe.xml`)
 - Saída em **JSON estruturado**, pronto para usar em APIs, antifraude, auditoria, etc.
 
-A ideia é ser o "núcleo técnico" de um validador moderno de NF-e:
+A ideia é ser o **"núcleo técnico"** de um validador moderno de NF-e:
 
 - Validação forte via XSD (schemes oficiais)
 - Extração de campos relevantes
