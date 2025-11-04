@@ -2,6 +2,8 @@
 
 <img src="https://img.shields.io/badge/XML%2FXSD-NFe-blueviolet?style=for-the-badge" alt="XML/XSD"/>
 
+<img src="go-nfe.jpg" alt="Golang" width="200" />
+
 Validador de **NF-e em Go**, usando:
 
 - **XSD oficial da NF-e (4.00)** via `libxml2` + `go-xsd-validate`
