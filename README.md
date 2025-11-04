@@ -2,7 +2,7 @@
 
 <img src="https://img.shields.io/badge/XML%2FXSD-NFe-blueviolet?style=for-the-badge" alt="XML/XSD"/>
 
-<img src="go-nfe.jpg" alt="Golang" width="200" />
+<img src="go-nfe.png" alt="Golang" width="200" />
 
 Validador de **NF-e em Go**, usando:
 
