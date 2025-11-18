@@ -76,20 +76,19 @@ Exemplo de execução:
 ```bash
 ./validator -xsd nota.xml schemas/v4/procNFe_v4.00.xsd
 ```
-✅ Valida apenas se o XML está correto conforme o schema
-✅ Perfeito para desenvolvimento de emissor
-✅ Não consulta SEFAZ
-✅ Resposta instantânea
+✅ Valida apenas se o XML está correto conforme o schema  
+✅ Perfeito para desenvolvimento de emissor  
+✅ Não consulta SEFAZ  
+✅ Resposta instantânea  
 
 2️⃣ XSD + Parse (validação intermediária)
 ```bash
 ./validator -skip-sefaz nota.xml schemas/v4/procNFe_v4.00.xsd
 ```
-
-✅ Valida XSD
-✅ Extrai e valida dados (chave, CNPJ, valores)
-✅ Não consulta SEFAZ
-✅ Bom para testes antes de ir para SEFAZ
+✅ Valida XSD  
+✅ Extrai e valida dados (chave, CNPJ, valores)  
+✅ Não consulta SEFAZ  
+✅ Bom para testes antes de ir para SEFAZ  
 
 3️⃣ Validação Completa (produção)
 ```bash
