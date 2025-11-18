@@ -100,6 +100,32 @@ Exemplo de execução:
 
 ---
 
+# Exemplo: .env.production
+```bash
+# export NFE_ENV=production
+NFE_ENV=production
+
+# -----------------
+# Certificados
+# -----------------
+NFE_CERT_DIR=certs/
+NFE_CERT_KEY_FILE=key.pem
+NFE_CERT_PUB_FILE=cert.pem
+
+# -----------------
+# Credenciais
+# -----------------
+NFE_CNPJ=12345678000100
+NFE_UF_IBGE=35
+
+# -----------------
+# URLs (Produção)
+# -----------------
+SEFAZ_CONSULTA_URL=https://nfe.fazenda.sp.gov.br/ws/nfeconsultaprotocolo4.asmx
+```
+
+---
+
 ## 🧩 Fluxo Inteligente
 
 Fluxo lógico atual do validador:
