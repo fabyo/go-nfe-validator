@@ -15,9 +15,6 @@ Validador de **NF-e em Go**, focado em:
 - ✅ **Consulta real na SEFAZ** para verificar o status da NF
 - ✅ Retorno em **JSON estruturado**, pronto para APIs, antifraude, auditoria etc.
 
-Agora ele não é só “validador de schema”:  
-é um **pipeline inteligente de validação + conferência na SEFAZ**.
-
 ---
 
 ## 🧠 O que o projeto faz hoje
