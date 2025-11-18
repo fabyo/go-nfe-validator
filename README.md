@@ -12,7 +12,7 @@ Validador de **NF-e em Go**, focado em:
 
 - ✅ **Validação XSD** usando *libxml2* via `go-xsd-validate`
 - ✅ **Validação estrutural / de dados** (parse do XML)
-- ✅ **Consulta real na SEFAZ** para verificar o status da chave
+- ✅ **Consulta real na SEFAZ** para verificar o status da NF
 - ✅ Retorno em **JSON estruturado**, pronto para APIs, antifraude, auditoria etc.
 
 Agora ele não é só “validador de schema”:  
@@ -59,7 +59,7 @@ Dado um arquivo XML de NF-e ou procNFe (`<NFe>` ou `<nfeProc>`), o validador:
     "numero": "4042",
     "emitente_cnpj": "12345678000199",
     "emitente_razao": "EMPRESA EXEMPLO LTDA",
-    "destinatario_doc": "98765432000188",
+    "destinatario_doc": "53745432000188",
     "destinatario_nome": "CLIENTE TESTE",
     "valor_total_nota": "199.90"
   }
@@ -72,19 +72,35 @@ Dado um arquivo XML de NF-e ou procNFe (`<NFe>` ou `<nfeProc>`), o validador:
 
 Exemplo de execução:
 
+1️⃣ Apenas XSD (desenvolvimento - super rápido!)
 ```bash
-./validador nota.xml schema.xsd
+./validator -xsd nota.xml schemas/v4/procNFe_v4.00.xsd
+```
+✅ Valida apenas se o XML está correto conforme o schema
+✅ Perfeito para desenvolvimento de emissor
+✅ Não consulta SEFAZ
+✅ Resposta instantânea
+
+2️⃣ XSD + Parse (validação intermediária)
+```bash
+./validator -skip-sefaz nota.xml schemas/v4/procNFe_v4.00.xsd
 ```
 
-Comportamento padrão:
+✅ Valida XSD
+✅ Extrai e valida dados (chave, CNPJ, valores)
+✅ Não consulta SEFAZ
+✅ Bom para testes antes de ir para SEFAZ
 
-1. **Sempre** valida contra o XSD.
-2. Se o XSD passar:
-   - faz parse do XML;
-   - consulta a SEFAZ, a menos que você use uma flag para pular essa etapa (ex.: `--skip-sefaz`).
-3. Se você quiser **apenas XSD**, pode usar uma flag específica (ex.: `--xsd-only`) para encerrar o fluxo após a validação de schema.
+3️⃣ Validação Completa (produção)
+```bash
+./validator nota.xml schemas/v4/procNFe_v4.00.xsd
+```
+✅ Valida XSD  
+✅ Valida dados  
+✅ Consulta status na SEFAZ  
+✅ Retorna se está autorizada/cancelada
 
-> Os nomes exatos das flags estão documentados na ajuda do binário (`-h` / `--help`).
+<img src="status.png" alt="Golang" width="700" />
 
 ---
 
@@ -109,7 +125,6 @@ graph TD
     E -- "skip sefaz" --> F
     E -- consulta --> G
 ```
-<img src="status.png" alt="Golang" width="700" />
 
 Em resumo:
 
