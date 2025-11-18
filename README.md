@@ -1,6 +1,10 @@
-# <img src="https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white" alt="Go"/> Go NFE Validator 📄✅
-
-<img src="https://img.shields.io/badge/XML%2FXSD-NFe-blueviolet?style=for-the-badge" alt="XML/XSD"/>
+# Go NFE Validator 📄✅
+<p>
+   <img src="https://img.shields.io/badge/Go-1.24.0-00ADD8?style=for-the-badge&logo=go&logoColor=white" />
+   <img src="https://img.shields.io/badge/XML%2FXSD-NFe-blueviolet?style=for-the-badge" alt="XML/XSD"/>   
+  <img src="https://img.shields.io/badge/XML-XSD%20Schemas-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/SEFAZ-4CAF50?style=for-the-badge" />
+</p>
 
 <img src="go-nfe.png" alt="Golang" width="200" />
 
