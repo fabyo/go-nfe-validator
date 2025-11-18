@@ -69,7 +69,7 @@ Dado um arquivo XML de NF-e ou procNFe (`<NFe>` ou `<nfeProc>`), o validador:
 
 Exemplo de execução:
 
-1️⃣ Apenas XSD (desenvolvimento - super rápido!)
+1️⃣ **Apenas XSD (desenvolvimento - super rápido!)**
 ```bash
 ./validator -xsd nota.xml schemas/v4/procNFe_v4.00.xsd
 ```
@@ -78,7 +78,7 @@ Exemplo de execução:
 ✅ Não consulta SEFAZ  
 ✅ Resposta instantânea  
 
-2️⃣ XSD + Parse (validação intermediária)
+2️⃣ **XSD + Parse (validação intermediária)**
 ```bash
 ./validator -skip-sefaz nota.xml schemas/v4/procNFe_v4.00.xsd
 ```
@@ -87,14 +87,24 @@ Exemplo de execução:
 ✅ Não consulta SEFAZ  
 ✅ Bom para testes antes de ir para SEFAZ  
 
-3️⃣ Validação Completa (produção)
+3️⃣ **Validação Completa (produção)**
 ```bash
 ./validator nota.xml schemas/v4/procNFe_v4.00.xsd
 ```
 ✅ Valida XSD  
 ✅ Valida dados  
 ✅ Consulta status na SEFAZ  
-✅ Retorna se está autorizada/cancelada
+✅ Retorna status da nota
+
+4️⃣ **Validação pela chave (sem xml)**
+```bash
+./validator -chave=12345678912345678998765432112345678911111111
+```
+✅ Verifica se tem exatamente 44 dígitos  
+✅ Verifica se são apenas números  
+✅ Consulta status na SEFAZ  
+✅ Retorna erro claro se inválida  
+✅ Retorna status da nota  
 
 <img src="status.png" alt="Golang" width="700" />
 
