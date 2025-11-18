@@ -142,10 +142,11 @@ Fluxo lógico atual do validador:
 
 ```mermaid
 graph TD
+    %% Fluxo principal da NFe
     A[Valida XSD]
     B[Erro de schema]
     C[Parse XML]
-    D[XML invalido]
+    D[XML inválido]
     E[Consulta SEFAZ]
     F[Retorna apenas dados do XML]
     G[Status real da NFe]
@@ -156,6 +157,15 @@ graph TD
     C -- ok --> E
     E -- "skip sefaz" --> F
     E -- consulta --> G
+
+    %% Fluxo separado: validação por chave de acesso
+    X[Valida chave de acesso]
+    Y[Chave inválida]
+    Z[Chave válida]
+
+    X -- inválida --> Y
+    X -- válida --> Z
+
 ```
 
 Em resumo:
