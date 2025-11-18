@@ -45,7 +45,7 @@ Dado um arquivo XML de NF-e ou procNFe (`<NFe>` ou `<nfeProc>`), o validador:
 ```json
 {
   "tipo": "nfe",
-  "chave_acesso": "35191111111111000123550010000040421000040420",
+  "chave_acesso": "12349874111111000123550010000040421000040420",
   "valido_xsd": true,
   "sefaz": {
     "consultado": true,
