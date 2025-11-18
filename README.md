@@ -93,20 +93,21 @@ Comportamento padrão:
 Fluxo lógico atual do validador:
 
 ```mermaid
-flowchart TD
-    A[Valida XSD<br/>(sempre executa)] -->|❌ Falhou| E[❌ Erro de schema<br/>para aqui]
-    A -->|✅ Passou| B{Modo só XSD?}
+graph TD
+  A[Valida XSD]
+  E[Erro de schema]
+  B[Parse XML]
+  G[XML invalido]
+  C[Consulta SEFAZ]
+  H[Retorna apenas dados do XML]
+  J[Status real da NFe]
 
-    B -->|Sim| F[✅ Retorna resultado da<br/>validação XSD e encerra]
-    B -->|Não| C[Parse do XML<br/>(extrai dados da NF-e)]
-
-    C -->|❌ Falhou| G[❌ XML inválido<br/>ou campos obrigatórios ausentes]
-    C -->|✅ Passou| D{Flag para pular SEFAZ?}
-
-    D -->|Sim| H[✅ Retorna apenas<br/>dados do XML]
-    D -->|Não| I[Consulta SEFAZ<br/>com a chave de acesso]
-
-    I --> J[📡 Retorna status real da NF-e:<br/>autorizada / cancelada / denegada / inexistente]
+  A -->|ok| B
+  A -->|erro| E
+  B -->|ok| C
+  B -->|erro| G
+  C -->|skip sefaz| H
+  C -->|consulta| J
 ```
 
 Em resumo:
