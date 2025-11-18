@@ -137,17 +137,19 @@ Em resumo:
 
 ## 📚 Schemas (XSD) via `sefaz-scraper`
 
-Os schemas oficiais **não ficam hardcoded** aqui dentro:  
-este projeto usa os XSDs atualizados pelo seu outro projeto:
+Os schemas oficiais **não ficam hardcoded**:  
+este projeto usa os XSDs atualizados pelo:
 
 - 🔗 [`fabyo/sefaz-scraper`](https://github.com/fabyo/sefaz-scraper)
+
+```bash
+./download_schemas.sh
+```
 
 A ideia é:
 
 - `sefaz-scraper` baixa/atualiza os XSDs direto das SEFAZ/Portal;
 - `go-nfe-validator` aponta para essa pasta, garantindo validação sempre com os **layouts oficiais mais recentes**.
-
-Documente no código/flags o caminho esperado para os XSD (ex.: `--schema-dir`), conforme sua estrutura local.
 
 ---
 
@@ -155,12 +157,10 @@ Documente no código/flags o caminho esperado para os XSD (ex.: `--schema-dir`),
 
 Ser um **núcleo técnico** sólido para:
 
-- validação forte de NF-e (estrutura + XSD),
+- validação de NF-e (estrutura + XSD),
 - conferência real na SEFAZ,
 - saída estruturada em JSON,
 - base para:
   - antifraude,
   - robôs de conferência fiscal,
   - integrações com outros sistemas (ERPs, BI, IA, etc.).
-
-A partir daqui, é “só” ir plugando emissão, eventos, distribuição DF-e… 😉
