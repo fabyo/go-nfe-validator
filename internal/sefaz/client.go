@@ -38,16 +38,21 @@ func loadCertsFromDir(pool *x509.CertPool, dir string) error {
 
 	for _, entry := range entries {
 		name := entry.Name()
-		if !entry.IsDir() && (strings.HasSuffix(name, ".crt") || strings.HasSuffix(name, ".pem")) {
+		
+		// Pular arquivos que não são certificados CA
+		if entry.IsDir() || strings.Contains(name, "key.pem") {
+			continue
+		}
+		
+		// Carregar apenas .crt e .pem (exceto key.pem)
+		if strings.HasSuffix(name, ".crt") || strings.HasSuffix(name, ".pem") {
 			path := filepath.Join(dir, name)
 			certBytes, err := os.ReadFile(path)
 			if err != nil {
 				log.Printf("⚠️ Aviso: Falha ao ler arquivo %s: %v", path, err)
 				continue
 			}
-			if ok := pool.AppendCertsFromPEM(certBytes); ok {
-				// Certificado adicionado (log silenciado)
-			} else {
+			if ok := pool.AppendCertsFromPEM(certBytes); !ok {
 				log.Printf("⚠️ Aviso: Falha ao adicionar CA do arquivo %s (formato inválido).", name)
 			}
 		}
