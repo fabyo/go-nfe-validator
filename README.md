@@ -109,6 +109,7 @@ graph TD
     E -- "skip sefaz" --> F
     E -- consulta --> G
 ```
+<img src="status.png" alt="Golang" width="700" />
 
 Em resumo:
 
