@@ -1,0 +1,15 @@
+# SEGURANÇA E AMBIENTE (Crucial)
+/certs/
+.env*
+.env.production
+.env.homolog
+*.pfx
+*.pem
+*.key
+
+*:Zone.Identifier
+
+# OUTPUTS / DEPENDÊNCIAS
+/bin/
+/vendor/
+/tmp/
