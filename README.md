@@ -65,9 +65,39 @@ Dado um arquivo XML de NF-e ou procNFe (`<NFe>` ou `<nfeProc>`), o validador:
 
 ---
 
-## 🚀 Uso rápido
+## 🚀 Uso como Biblioteca
 
-Exemplo de execução:
+### Validar apenas XSD (desenvolvimento)
+```go
+import "github.com/fabyo/go-nfe-validator/pkg/nfe"
+
+xmlData, _ := os.ReadFile("nota.xml")
+err := nfe.ValidarApenasXSD(xmlData, "schemas/v4/procNFe_v4.00.xsd")
+```
+
+### Validar com SEFAZ
+```go
+client, _ := nfe.NewClient("cert", "key.pem", "cert.pem")
+result, _ := client.ValidarXML(xmlData, "schema.xsd")
+
+if result.Autorizado {
+    fmt.Println("NF-e autorizada!")
+}
+```
+
+### Validar apenas por chave
+```go
+result, _ := client.ValidarChave("123456789098765433215550010000098765543211111")
+fmt.Println(result.Status.Mensagem)
+```
+
+### Script de exemplo
+```go
+go run examples/validar-xml/main.go 12345678998765432111111122222233333344444455-procNFe.xml
+```
+
+---
+## Uso como CLI:
 
 1️⃣ **Apenas XSD (desenvolvimento - super rápido!)**
 ```bash
