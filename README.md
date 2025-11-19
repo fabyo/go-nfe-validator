@@ -65,9 +65,9 @@ Dado um arquivo XML de NF-e ou procNFe (`<NFe>` ou `<nfeProc>`), o validador:
 
 ---
 
-## 🚀 Uso como Biblioteca
+## Uso como Biblioteca
 
-### Validar apenas XSD (desenvolvimento)
+### 1️⃣ Validar apenas XSD (desenvolvimento)
 ```go
 import "github.com/fabyo/go-nfe-validator/pkg/nfe"
 
@@ -75,7 +75,7 @@ xmlData, _ := os.ReadFile("nota.xml")
 err := nfe.ValidarApenasXSD(xmlData, "schemas/v4/procNFe_v4.00.xsd")
 ```
 
-### Validar com SEFAZ
+### 2️⃣ Validar com SEFAZ
 ```go
 client, _ := nfe.NewClient("cert", "key.pem", "cert.pem")
 result, _ := client.ValidarXML(xmlData, "schema.xsd")
@@ -85,15 +85,41 @@ if result.Autorizado {
 }
 ```
 
-### Validar apenas por chave
+### 3️⃣ Validar apenas por chave
 ```go
 result, _ := client.ValidarChave("123456789098765433215550010000098765543211111")
 fmt.Println(result.Status.Mensagem)
 ```
 
-### Script de exemplo
+### 4️⃣ Script de exemplo
 ```go
 go run examples/validar-xml/main.go 12345678998765432111111122222233333344444455-procNFe.xml
+```
+
+### 🚀 Outros projetos poderão usar assim:
+```go
+package main
+
+import (
+    "fmt"
+    "os"
+    
+    "github.com/fabyo/go-nfe-validator/pkg/nfe"
+)
+
+func main() {
+    // Validação rápida apenas XSD
+    xmlData, _ := os.ReadFile("nota.xml")
+    if err := nfe.ValidarApenasXSD(xmlData, "schema.xsd"); err != nil {
+        panic(err)
+    }
+    
+    // Ou validação completa
+    client, _ := nfe.NewClient("cert", "key.pem", "cert.pem")
+    result, _ := client.ValidarChave("12345678998765432111111122222233333344444455")
+    
+    fmt.Printf("Autorizada: %v\n", result.Autorizado)
+}
 ```
 
 ---
