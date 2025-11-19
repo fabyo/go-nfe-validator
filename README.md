@@ -2,9 +2,11 @@
 <p>
    <img src="https://img.shields.io/badge/Go-1.24.0-00ADD8?style=for-the-badge&logo=go&logoColor=white" />
    <img src="https://img.shields.io/badge/XML%2FXSD-NFe-blueviolet?style=for-the-badge" alt="XML/XSD"/>   
-  <img src="https://img.shields.io/badge/XML-XSD%20Schemas-orange?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/SEFAZ-4CAF50?style=for-the-badge" />
+   <img src="https://img.shields.io/badge/XML-XSD%20Schemas-orange?style=for-the-badge" />
+   <img src="https://img.shields.io/badge/SEFAZ-4CAF50?style=for-the-badge" />
+   <img src="https://img.shields.io/badge/License-MIT-4CAF50?style=for-the-badge&logo=opensourceinitiative&logoColor=white" />   
 </p>
+
 
 <img src="go-nfe.png" alt="Golang" width="200" />
 
