@@ -6,6 +6,7 @@
 *.pfx
 *.pem
 *.key
+.xml
 
 *:Zone.Identifier
 
