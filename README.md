@@ -67,7 +67,12 @@ Dado um arquivo XML de NF-e ou procNFe (`<NFe>` ou `<nfeProc>`), o validador:
 
 ## Uso como Biblioteca
 
+```go
+go get github.com/fabyo/go-nfe-validator
+```
+
 ### 1️⃣ Validar apenas XSD (desenvolvimento)
+
 ```go
 import "github.com/fabyo/go-nfe-validator/pkg/nfe"
 
