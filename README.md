@@ -17,7 +17,7 @@ Validador de **NF-e em Go**, focado em:
 
 ---
 
-## 🧠 O que o projeto faz hoje
+## 🧠 O que o projeto faz
 
 Dado um arquivo XML de NF-e ou procNFe (`<NFe>` ou `<nfeProc>`), o validador:
 
