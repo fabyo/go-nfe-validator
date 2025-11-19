@@ -1,16 +1,39 @@
-# SEGURANÇA E AMBIENTE (Crucial)
-/certs/
-.env*
-.env.production
-.env.homolog
-*.pfx
+# ==== Go build artefacts ====
+bin/
+dist/
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# ==== Módulo vendor (se usar go mod vendor) ====
+vendor/
+
+# ==== IDE / Editor ====
+.vscode/
+.idea/
+*.iml
+
+# ==== Arquivos de ambiente / segredos ====
+.env
+.env.*
 *.pem
 *.key
-.xml
 
+# ==== Logs ====
+*.log
+logs/
+
+# ==== NFe: NÃO versionar XMLs reais/procNFe ====
+*-procNFe.xml
+notas/
+nfe_xml/
+xml_nfe/
+
+# ==== Windows lixo / streams extras ====
+[Tt]humbs.db
+[Dd]esktop.ini
 *:Zone.Identifier
-
-# OUTPUTS / DEPENDÊNCIAS
-/bin/
-/vendor/
-/tmp/
